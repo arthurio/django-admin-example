@@ -22,3 +22,6 @@ class Author(get_user_model()):
         proxy = True
 
     objects = Manager.from_queryset(models.QuerySet)()
+
+    def sign(self, book):
+        print('To you my friend. {}'.format(book.title))
