@@ -12,6 +12,15 @@ class Book(models.Model):
                                on_delete=models.SET_NULL)
 
 
+class Signature(models.Model):
+    value = models.CharField(max_length=30)
+    author = models.OneToOneField('Author', on_delete=models.CASCADE)
+
+
+class City(models.Model):
+    author = models.ManyToManyField('Author')
+
+
 class Author(get_user_model()):
     class Manager(BaseUserManager):
         def get_queryset(self):
